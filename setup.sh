@@ -131,13 +131,13 @@ sleep 1
 mv /tmp/otikrd/extra/byOtikLineNotify /etc/freeradius/3.0/mods-available/
 sleep 1
 
-sudo ln -s mods-available/byotiklinenotify mods-enabled/
+sudo ln -s mods-available/byOtikLineNotify mods-enabled/
 sleep 1
 
-sudo chgrp -h freerad mods-available/byotiklinenotify
+sudo chgrp -h freerad mods-available/byOtikLineNotify
 sleep 1
 
-sudo chown -R freerad:freerad mods-enabled/byotiklinenotify
+sudo chown -R freerad:freerad mods-enabled/byOtikLineNotify
 sleep 1
 
 cat > clients.conf << EOF
