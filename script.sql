@@ -20,6 +20,7 @@ UPDATE mysql.user SET authentication_string = PASSWORD('Love@OtikNetWork') WHERE
 FLUSH PRIVILEGES;
 
 # Create new database name "otikdb" with support utf8 (Thai Language)
+DROP DATABASE IF EXITS otikdb;
 CREATE DATABASE otikdb character set utf8;
 
 
