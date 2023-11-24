@@ -87,23 +87,22 @@ echo "Create soft link modules"
 echo "====================================="
 echo 
 
-#cd /etc/freeradius/3.0/mods-enabled/
-pathRad = /etc/freeradius/3.0
+cd /etc/freeradius/3.0/
 
-sudo ln -s $pathRad/mods-available/sql $pathRad/mods-enabled/
+sudo ln -s mods-available/sql mods-enabled/
 sleep 1
-sudo chgrp -h freerad $pathRad/mods-available/sql
+sudo chgrp -h freerad mods-available/sql
 sleep 1
-sudo chown -R freerad:freerad $pathRad/mods-enabled/sql
+sudo chown -R freerad:freerad mods-enabled/sql
 sleep 1
 
 echo "Enable SqlCounter"
 
-sudo ln -s $pathRad/mods-available/sqlcounter $pathRad/mods-enabled/
+sudo ln -s mods-available/sqlcounter mods-enabled/
 sleep 1
-sudo chgrp -h freerad $pathRad/mods-available/sqlcounter
+sudo chgrp -h freerad mods-available/sqlcounter
 sleep 1
-sudo chown -R freerad:freerad $pathRad/mods-enabled/sqlcounter
+sudo chown -R freerad:freerad mods-enabled/sqlcounter
 sleep 1
 
 
@@ -132,16 +131,16 @@ sleep 1
 mv /tmp/otikrd/extra/byOtikLineNotify /etc/freeradius/3.0/mods-available/
 sleep 1
 
-sudo ln -s $pathRad/mods-available/byotiklinenotify $pathRad/mods-enabled/
+sudo ln -s mods-available/byotiklinenotify mods-enabled/
 sleep 1
 
-sudo chgrp -h freerad $pathRad/mods-available/byotiklinenotify
+sudo chgrp -h freerad mods-available/byotiklinenotify
 sleep 1
 
-sudo chown -R freerad:freerad $pathRad/mods-enabled/byotiklinenotify
+sudo chown -R freerad:freerad mods-enabled/byotiklinenotify
 sleep 1
 
-cat > $pathRad/clients.conf << EOF
+cat > clients.conf << EOF
 client localhost {
 	
 	ipaddr = 127.0.0.1
@@ -178,7 +177,7 @@ EOF
 
 sleep 1
 
-cat > $pathRad/mods-enabled/sql << EOF
+cat > mods-enabled/sql << EOF
 
 ######################################################################
 #  Configuration for the SQL module
@@ -275,7 +274,7 @@ EOF
 
 sleep 1
 
-cat > $pathRad/radiusd.conf << EOF
+cat > radiusd.conf << EOF
 
 prefix = /usr
 exec_prefix = /usr
@@ -364,7 +363,7 @@ EOF
 
 sleep 1
 
-cat > $pathRad/sites-available/default << EOF
+cat > sites-available/default << EOF
 
 server default {
 
