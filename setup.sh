@@ -87,22 +87,22 @@ echo "Create soft link modules"
 echo "====================================="
 echo 
 
-cd /etc/freeradius/3.0/
+#cd /etc/freeradius/3.0/
 
-sudo ln -s mods-available/sql mods-enabled/
+sudo ln -s /etc/freeradius/3.0/mods-available/sql /etc/freeradius/3.0/mods-enabled/
 sleep 1
-sudo chgrp -h freerad mods-available/sql
+sudo chgrp -h freerad /etc/freeradius/3.0/mods-available/sql
 sleep 1
-sudo chown -R freerad:freerad mods-enabled/sql
+sudo chown -R freerad:freerad /etc/freeradius/3.0/mods-enabled/sql
 sleep 1
 
 echo "Enable SqlCounter"
 
-sudo ln -s mods-available/sqlcounter mods-enabled/
+sudo ln -s /etc/freeradius/3.0/mods-available/sqlcounter /etc/freeradius/3.0/mods-enabled/
 sleep 1
-sudo chgrp -h freerad mods-available/sqlcounter
+sudo chgrp -h freerad /etc/freeradius/3.0/mods-available/sqlcounter
 sleep 1
-sudo chown -R freerad:freerad mods-enabled/sqlcounter
+sudo chown -R freerad:freerad /etc/freeradius/3.0/mods-enabled/sqlcounter
 sleep 1
 
 
@@ -131,16 +131,16 @@ sleep 1
 mv /tmp/otikrd/extra/byOtikLineNotify /etc/freeradius/3.0/mods-available/
 sleep 1
 
-sudo ln -s mods-available/byOtikLineNotify mods-enabled/
+sudo ln -s /etc/freeradius/3.0/mods-available/byOtikLineNotify /etc/freeradius/3.0/mods-enabled/
 sleep 1
 
-sudo chgrp -h freerad mods-available/byOtikLineNotify
+sudo chgrp -h freerad /etc/freeradius/3.0/mods-available/byOtikLineNotify
 sleep 1
 
-sudo chown -R freerad:freerad mods-enabled/byOtikLineNotify
+sudo chown -R freerad:freerad /etc/freeradius/3.0/mods-enabled/byOtikLineNotify
 sleep 1
 
-cat > clients.conf << EOF
+cat > /etc/freeradius/3.0/clients.conf << EOF
 client localhost {
 	
 	ipaddr = 127.0.0.1
@@ -177,7 +177,7 @@ EOF
 
 sleep 1
 
-cat > mods-enabled/sql << EOF
+cat > /etc/freeradius/3.0/mods-enabled/sql << EOF
 
 ######################################################################
 #  Configuration for the SQL module
@@ -274,7 +274,7 @@ EOF
 
 sleep 1
 
-cat > radiusd.conf << EOF
+cat > /etc/freeradius/3.0/radiusd.conf << EOF
 
 prefix = /usr
 exec_prefix = /usr
@@ -363,7 +363,7 @@ EOF
 
 sleep 1
 
-cat > sites-available/default << EOF
+cat > /etc/freeradius/3.0/sites-available/default << EOF
 
 server default {
 
